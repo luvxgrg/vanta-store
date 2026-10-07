@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { storeConfig } from "@/config/store";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,11 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "VANTA | Form Over Noise",
-    template: "%s | VANTA",
+    default: `${storeConfig.name} | Form Over Noise`,
+    template: `%s | ${storeConfig.name}`,
   },
-  description:
-    "VANTA is a contemporary streetwear concept exploring modern silhouettes, editorial design and digital fashion commerce.",
+  description: storeConfig.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
