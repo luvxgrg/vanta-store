@@ -38,6 +38,7 @@ export interface Product {
   // An empty array means photography has not been supplied yet.
   images: ProductImage[];
   category: string;
+  audience: "men" | "women" | "unisex";
   collectionSlugs: string[];
   colors: ProductColor[];
   sizes: string[];
@@ -47,6 +48,9 @@ export interface Product {
   featured: boolean;
   bestseller: boolean;
   newArrival: boolean;
+  // Deterministic catalogue sequence; higher values sort first for Newest.
+  // This is an editorial order, not a claimed release date.
+  catalogueOrder: number;
 }
 
 export interface Collection {
@@ -54,5 +58,6 @@ export interface Collection {
   slug: string;
   name: string;
   description: string;
+  eyebrow?: string;
   productIds: string[];
 }

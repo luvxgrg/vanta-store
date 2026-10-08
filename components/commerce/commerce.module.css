@@ -12,6 +12,11 @@
   min-width: 0;
 }
 
+.collectionGrid .imageSurface {
+  aspect-ratio: 3 / 4;
+  height: auto;
+}
+
 .cardLink {
   display: block;
   color: inherit;
@@ -121,6 +126,9 @@
 }
 
 @media (min-width: 768px) {
+  .collectionGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .grid {
     gap: clamp(32px, 2.778vw, 40px) clamp(16px, 1.667vw, 24px);
   }
@@ -151,6 +159,10 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .grid.collectionGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .name {
     font-size: 15px;
   }
@@ -161,6 +173,12 @@
 
   .badges {
     font-size: 11px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid.collectionGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

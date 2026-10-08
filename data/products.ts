@@ -155,7 +155,7 @@ const catalogue: ConceptProduct[] = [
   },
 ];
 
-export const products: Product[] = catalogue.map((item) => {
+export const products: Product[] = catalogue.map((item, index) => {
   const sizes = ["S", "M", "L", "XL", "XXL"];
 
   return {
@@ -168,6 +168,8 @@ export const products: Product[] = catalogue.map((item) => {
     currency: storeConfig.currency,
     images: item.images ?? [],
     category: item.category,
+    // This concept catalogue uses shared silhouettes for all audiences.
+    audience: "unisex",
     collectionSlugs: ["drop-001-form", item.category],
     colors: [{ name: item.color }],
     sizes,
@@ -183,5 +185,6 @@ export const products: Product[] = catalogue.map((item) => {
     featured: item.featured,
     bestseller: false,
     newArrival: true,
+    catalogueOrder: index + 1,
   };
 });

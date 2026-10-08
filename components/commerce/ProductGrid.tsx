@@ -5,14 +5,20 @@ import styles from "./commerce.module.css";
 interface ProductGridProps {
   products: readonly Product[];
   getProductHref?: (product: Product) => string;
+  variant?: "homepage" | "collection";
 }
 
-export default function ProductGrid({ products, getProductHref }: ProductGridProps) {
+export default function ProductGrid({ products, getProductHref, variant = "homepage" }: ProductGridProps) {
+  const isCollection = variant === "collection";
   return (
-    <ul className={styles.grid}>
+    <ul className={`${styles.grid}${isCollection ? ` ${styles.collectionGrid}` : ""}`}>
       {products.map((product) => (
         <li key={product.id}>
-          <ProductCard product={product} href={getProductHref?.(product)} />
+          <ProductCard
+            product={product}
+            href={getProductHref?.(product)}
+            imageSizes={isCollection ? "(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 50vw" : undefined}
+          />
         </li>
       ))}
     </ul>

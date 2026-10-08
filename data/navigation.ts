@@ -6,8 +6,8 @@ export interface NavigationItem {
 }
 
 export const primaryNavigation: NavigationItem[] = [
-  { id: "new-in", label: "NEW IN" },
-  { id: "men", label: "MEN" },
-  { id: "women", label: "WOMEN" },
-  { id: "collections", label: "COLLECTIONS" },
+  { id: "new-in", label: "NEW IN", href: "/collections/new-in" },
+  { id: "men", label: "MEN", href: "/collections/men" },
+  { id: "women", label: "WOMEN", href: "/collections/women" },
+  { id: "collections", label: "COLLECTIONS", href: "/collections/drop-001-form" },
 ];
