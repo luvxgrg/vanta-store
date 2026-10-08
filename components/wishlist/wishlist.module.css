@@ -1,0 +1,13 @@
+.iconButton, .saveButton { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-width: 44px; min-height: 44px; border: 0; border-radius: 0; color: var(--foreground); cursor: pointer; }
+.iconButton { background: var(--background); }
+.saveButton { margin-top: 12px; background: transparent; font-size: 10px; letter-spacing: .04em; }
+.iconButton:focus-visible, .saveButton:focus-visible, .navLink:focus-visible, .empty a:focus-visible, .header h1:focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
+.main { padding: 48px 20px 80px; }
+.header { margin-bottom: 40px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.header h1 { font-size: clamp(40px, 6.5vw, 96px); font-weight: 600; line-height: 1; letter-spacing: -.055em; }
+.header p { margin-top: 24px; font-family: var(--font-geist-mono), monospace; font-size: 10px; letter-spacing: .06em; }
+.empty, .loading { min-height: 360px; padding-block: 48px; }
+.empty h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 500; letter-spacing: -.04em; }
+.empty p { margin-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.empty a { display: inline-block; min-height: 44px; margin-top: 28px; padding-block: 12px; border-bottom: 1px solid var(--foreground); font-size: 11px; }
+@media (min-width: 768px) { .main { padding: clamp(64px, 6vw, 96px) var(--storefront-gutter) 100px; } }

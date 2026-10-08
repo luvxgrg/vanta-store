@@ -6,10 +6,11 @@ import styles from "./footer.module.css";
 const groups: { title: string; items: readonly NavigationItem[] }[] = [
   { title: "SHOP", items: primaryNavigation },
   { title: "INFO", items: [
-    { id: "about", label: "About" },
-    { id: "shipping", label: "Shipping" },
-    { id: "returns", label: "Returns" },
-    { id: "contact", label: "Contact" },
+    { id: "about", label: "About", href: "/about" },
+    { id: "shipping", label: "Shipping", href: "/shipping" },
+    { id: "returns", label: "Returns", href: "/returns" },
+    { id: "contact", label: "Contact", href: "/contact" },
+    { id: "size-guide", label: "Size Guide", href: "/size-guide" },
   ] },
   { title: "FOLLOW", items: [
     { id: "instagram", label: "Instagram" },

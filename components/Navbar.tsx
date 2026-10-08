@@ -3,8 +3,12 @@ import { storeConfig } from "@/config/store";
 import { primaryNavigation } from "@/data/navigation";
 import styles from "./storefront.module.css";
 import BagTrigger from "./cart/BagTrigger";
+import Search from "./search/Search";
+import { products } from "@/data/products";
+import WishlistLink from "./wishlist/WishlistLink";
+import MobileMenu from "./MobileMenu";
 
-const utilities = ["SEARCH", "WISHLIST"];
+const searchProducts = products.map(({ id, slug, name, colors, category, price, currency, images }) => ({ id, slug, name, colors, category, price, currency, images }));
 
 export default function Navbar() {
   return (
@@ -27,23 +31,11 @@ export default function Navbar() {
       </ul>
       <BagTrigger mobile />
       <ul className={styles.utilities}>
-        {utilities.map((label) => (
-          <li key={label}>
-            <a role="link" aria-disabled="true" title="Coming soon">
-              {label}
-            </a>
-          </li>
-        ))}
+        <li><Search products={searchProducts} /></li>
+        <li><WishlistLink /></li>
         <li><BagTrigger /></li>
       </ul>
-      <button
-        type="button"
-        className={styles.menu}
-        disabled
-        title="Mobile navigation coming soon"
-      >
-        MENU
-      </button>
+      <div className={styles.mobileControls}><Search products={searchProducts} mobile /><MobileMenu items={primaryNavigation} /></div>
     </nav>
   );
 }

@@ -12,6 +12,9 @@
   min-width: 0;
 }
 
+.card { position: relative; }
+.wishlistControl { position: absolute; top: 8px; right: 8px; }
+
 .collectionGrid .imageSurface {
   aspect-ratio: 3 / 4;
   height: auto;

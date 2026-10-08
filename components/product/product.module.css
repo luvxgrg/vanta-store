@@ -20,6 +20,9 @@
 .sizeOption input:checked + span { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
 .sizeOption input:focus-visible + span { outline: 2px solid var(--foreground); outline-offset: 3px; }
 .guideTrigger { min-height: 44px; margin-top: 8px; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.supportLinks { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 12px; }
+.supportLinks a { display: inline-block; min-height: 44px; padding-block: 12px; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; }
+.supportLinks a:focus-visible, .dialog a:focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
 .addButton { display: block; width: 100%; min-height: 52px; margin-top: 16px; border: 1px solid var(--foreground); border-radius: 0; background: var(--foreground); color: var(--background); font-size: 12px; letter-spacing: .06em; cursor: pointer; }
 .addButton:disabled { opacity: .5; cursor: not-allowed; }
 .message { margin-top: 12px; font-size: 12px; line-height: 1.6; }

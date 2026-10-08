@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { storeConfig } from "@/config/store";
 import styles from "./storefront.module.css";
 
@@ -27,14 +28,12 @@ export default function Hero() {
         <p className={styles.description}>
           Clothing reduced to what matters: form, proportion and movement.
         </p>
-        <a
+        <Link
           className={styles.shopLink}
-          role="link"
-          aria-disabled="true"
-          title="Drop shopping coming soon"
+          href="/collections/drop-001-form"
         >
           SHOP THE DROP <span aria-hidden="true">→</span>
-        </a>
+        </Link>
         <p className={styles.marker}>01 / 26</p>
       </div>
     </section>

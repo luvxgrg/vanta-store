@@ -8,6 +8,7 @@ import {
 } from "@/lib/productFilters";
 import styles from "./collection-filters.module.css";
 import toolbarStyles from "./collection-toolbar.module.css";
+import { formatCurrency } from "@/lib/formatCurrency";
 
 interface CollectionFiltersProps {
   filters: ProductFilters;
@@ -102,8 +103,8 @@ export default function CollectionFilters({ filters, options, productCount, curr
     label: `${groupLabels[group]}: ${options[group].find((option) => option.value === value)?.label ?? value}`,
     remove: () => navigate({ ...filters, [group]: filters[group].filter((entry) => entry !== value) }),
   })));
-  if (filters.minPrice !== undefined) active.push({ key: "min-price", label: `Min: ${filters.minPrice} ${currency}`, remove: () => navigate({ ...filters, minPrice: undefined }) });
-  if (filters.maxPrice !== undefined) active.push({ key: "max-price", label: `Max: ${filters.maxPrice} ${currency}`, remove: () => navigate({ ...filters, maxPrice: undefined }) });
+  if (filters.minPrice !== undefined) active.push({ key: "min-price", label: `Min: ${formatCurrency(filters.minPrice, currency)}`, remove: () => navigate({ ...filters, minPrice: undefined }) });
+  if (filters.maxPrice !== undefined) active.push({ key: "max-price", label: `Max: ${formatCurrency(filters.maxPrice, currency)}`, remove: () => navigate({ ...filters, maxPrice: undefined }) });
 
   return (
     <div aria-busy={isPending}>

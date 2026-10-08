@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 12px;
   min-height: 72px;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
@@ -50,22 +50,22 @@
   white-space: nowrap;
 }
 
-.menu {
-  padding: 8px 0;
-  color: var(--foreground);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-}
+.mobileControls { display: flex; align-items: center; gap: 12px; }
+@media (min-width: 1024px) { .mobileControls { display: none; } }
 
-.navbar [aria-disabled="true"],
-.menu:disabled,
-.shopLink {
+.navbar [aria-disabled="true"] {
   cursor: not-allowed;
 }
 
-.wordmark:focus-visible {
+.wordmark:focus-visible,
+.announcement a:focus-visible {
   outline: 2px solid var(--foreground);
   outline-offset: 6px;
+}
+
+.shopLink:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 5px;
 }
 
 .hero {
@@ -229,10 +229,6 @@
   .utilities {
     justify-self: end;
     gap: clamp(14px, 1.389vw, 20px);
-  }
-
-  .menu {
-    display: none;
   }
 
   .hero {

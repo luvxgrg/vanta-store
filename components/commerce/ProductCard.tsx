@@ -3,17 +3,20 @@ import Link from "next/link";
 import { formatCurrency } from "@/lib/formatCurrency";
 import type { Product } from "@/types/commerce";
 import styles from "./commerce.module.css";
+import WishlistButton from "@/components/wishlist/WishlistButton";
 
 interface ProductCardProps {
   product: Product;
   href?: string;
   imageSizes?: string;
+  imageLoading?: "eager" | "lazy";
 }
 
 export default function ProductCard({
   product,
   href = `/products/${product.slug}`,
   imageSizes = "(min-width: 1024px) 25vw, 50vw",
+  imageLoading = "lazy",
 }: ProductCardProps) {
   const [primaryImage] = product.images;
   const onSale = product.compareAtPrice !== undefined && product.compareAtPrice > product.price;
@@ -26,6 +29,7 @@ export default function ProductCard({
               alt={primaryImage.alt}
               fill
               sizes={imageSizes}
+              loading={imageLoading}
               className={styles.productImage}
             />
         ) : (
@@ -64,6 +68,7 @@ export default function ProductCard({
   return (
     <article className={styles.card}>
       {href ? <Link href={href} className={styles.cardLink}>{content}</Link> : content}
+      <div className={styles.wishlistControl}><WishlistButton productId={product.id} label={`${product.name}, ${product.colors.map((color) => color.name).join(" / ")}`} compact /></div>
     </article>
   );
 }

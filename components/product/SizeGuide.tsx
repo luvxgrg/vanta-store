@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import type { SizeGuide as SizeGuideData } from "@/data/productInformation";
 import styles from "./product.module.css";
+import Link from "next/link";
+import SizeGuideContent from "./SizeGuideContent";
 
 export default function SizeGuide({ guide }: { guide: SizeGuideData }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -31,18 +33,19 @@ export default function SizeGuide({ guide }: { guide: SizeGuideData }) {
       <dialog ref={dialog} id="size-guide" className={styles.dialog} aria-labelledby="size-guide-title" onClose={closed}
         onKeyDown={(event) => {
           if (event.key === "Escape") { event.preventDefault(); dialog.current?.close(); }
-          if (event.key === "Tab") { event.preventDefault(); event.currentTarget.querySelector<HTMLButtonElement>("button")?.focus(); }
+          if (event.key === "Tab") {
+            const controls = [...event.currentTarget.querySelectorAll<HTMLElement>("button, a[href]")];
+            const first = controls[0], last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+          }
         }}>
         <div className={styles.dialogHeader}>
           <h2 id="size-guide-title">SIZE GUIDE</h2>
           <button type="button" onClick={() => dialog.current?.close()} aria-label="Close size guide">CLOSE ×</button>
         </div>
-        <table className={styles.table}>
-          <caption>{guide.title}</caption>
-          <thead><tr><th scope="col">Size</th>{guide.columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr></thead>
-          <tbody>{guide.rows.map((row) => <tr key={row.size}><th scope="row">{row.size}</th>{row.measurements.map((value, index) => <td key={guide.columns[index]}>{value}</td>)}</tr>)}</tbody>
-        </table>
-        <p className={styles.guideNote}>{guide.note}</p>
+        <SizeGuideContent guide={guide} />
+        <Link href="/size-guide" className={styles.guideTrigger} onClick={() => dialog.current?.close()}>FULL SIZE GUIDE →</Link>
       </dialog>
     </>
   );

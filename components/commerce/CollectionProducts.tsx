@@ -35,6 +35,7 @@ export default async function CollectionProducts({ products, collection, searchP
       <ProductGrid
         products={orderedProducts}
         variant="collection"
+        eagerFirstRow
         getProductHref={(product) => `/products/${product.slug}`}
       />
       )}

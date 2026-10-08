@@ -1,0 +1,38 @@
+.main { padding: 48px 20px 80px; }
+.header { padding-bottom: 40px; }
+.eyebrow { font-family: var(--font-geist-mono), monospace; font-size: 10px; letter-spacing: .06em; }
+.header h1 { max-width: 16ch; margin-top: 24px; font-size: clamp(40px, 6.5vw, 96px); line-height: 1; font-weight: 600; letter-spacing: -.055em; overflow-wrap: anywhere; }
+.intro { max-width: 54ch; margin-top: 28px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.sections { border-top: 1px solid var(--border); }
+.row { display: grid; gap: 16px; padding-block: 32px; border-bottom: 1px solid var(--border); }
+.row h2 { font-size: 13px; font-weight: 500; letter-spacing: .025em; }
+.row p { max-width: 60ch; font-size: 14px; line-height: 1.8; color: var(--muted); }
+.aboutImage { position: relative; aspect-ratio: 5 / 4; margin-block: 8px 48px; overflow: hidden; background: var(--surface); }
+.image { object-fit: cover; object-position: 50% 65%; }
+.philosophy { display: grid; gap: 32px; padding-block: 40px; border-block: 1px solid var(--border); }
+.philosophy h2 { font-size: clamp(30px, 4vw, 56px); font-weight: 500; line-height: 1.2; letter-spacing: -.04em; }
+.philosophy p { max-width: 44ch; margin-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.link { display: inline-block; min-height: 44px; margin-top: 32px; padding-block: 12px; border-bottom: 1px solid var(--foreground); font-size: 11px; }
+.contactHeading { max-width: 30ch; margin-bottom: 32px; font-size: clamp(24px, 3vw, 40px); font-weight: 500; line-height: 1.2; letter-spacing: -.04em; }
+.form { max-width: 760px; border-top: 1px solid var(--border); padding-top: 32px; }
+.fields { display: grid; gap: 28px; }
+.fields label { display: block; min-width: 0; font-size: 10px; letter-spacing: .05em; }
+.fields input, .fields textarea { display: block; width: 100%; min-height: 48px; margin-top: 8px; padding: 12px 0; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; color: var(--foreground); font: inherit; font-size: 16px; letter-spacing: normal; }
+.fields textarea { resize: vertical; }
+.form button { min-height: 44px; margin-top: 32px; padding-block: 12px; border-bottom: 1px solid var(--foreground); font-size: 11px; cursor: pointer; }
+.formNote { margin-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.guides { display: grid; gap: 48px; padding-block: 24px 48px; }
+.guide { min-width: 0; }
+.guide h2 { font-size: 16px; font-weight: 500; }
+.measureHeading { margin-block: 16px 24px; font-size: 24px; font-weight: 500; letter-spacing: -.04em; }
+.main :focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
+@media (min-width: 768px) {
+  .main { padding: clamp(64px, 6vw, 96px) var(--storefront-gutter) 100px; }
+  .header { padding-bottom: 64px; }
+  .row { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; padding-block: 40px; }
+  .philosophy { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-block: 64px; }
+  .aboutImage { aspect-ratio: 16 / 9; margin-bottom: 64px; }
+  .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .full { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) { .guides { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; } }

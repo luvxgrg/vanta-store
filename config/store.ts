@@ -21,7 +21,7 @@ export const storeConfig: StoreConfig = {
   currency: "INR",
   currencySymbol: "₹",
   announcement: {
-    shipping: "COMPLIMENTARY SHIPPING ON PREPAID ORDERS",
+    shipping: "VANTA / FORM OVER NOISE",
     campaign: "DROP 001 — FORM",
     market: "INDIA / INR",
   },
