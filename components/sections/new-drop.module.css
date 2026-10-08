@@ -4,6 +4,12 @@
   color: var(--foreground);
 }
 
+@media (min-width: 1024px) {
+  .heading p {
+    font-size: 12px;
+  }
+}
+
 .heading {
   display: flex;
   flex-wrap: wrap;
@@ -30,16 +36,10 @@
 
 @media (min-width: 768px) {
   .section {
-    padding: 64px 32px 72px;
+    padding: clamp(64px, 5.556vw, 80px) var(--storefront-gutter) clamp(72px, 6.667vw, 96px);
   }
 
   .heading {
-    margin-bottom: 36px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .section {
-    padding: 80px 48px 96px;
+    margin-bottom: clamp(28px, 2.5vw, 36px);
   }
 }

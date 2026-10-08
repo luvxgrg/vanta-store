@@ -1,0 +1,146 @@
+.section {
+  padding: 40px 20px 64px;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 24px;
+  padding-top: 24px;
+  margin-bottom: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.heading h2 {
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+.heading p,
+.frame figcaption {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.gallery {
+  display: grid;
+  gap: 40px;
+}
+
+.frame {
+  min-width: 0;
+  margin: 0;
+}
+
+.frame figcaption {
+  margin-top: 10px;
+}
+
+.imagePanel {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.detail .imagePanel {
+  aspect-ratio: 3 / 2;
+}
+
+.portrait {
+  width: 80%;
+  justify-self: end;
+}
+
+.portrait .imagePanel {
+  aspect-ratio: 2 / 3;
+}
+
+.editorial .imagePanel {
+  aspect-ratio: 4 / 5;
+}
+
+.closing {
+  width: 75%;
+}
+
+.closing .imagePanel {
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding:
+      clamp(48px, calc(2.381vw + 29.714px), 64px)
+      var(--storefront-gutter)
+      clamp(88px, calc(3.571vw + 60.571px), 112px);
+  }
+
+  .heading {
+    margin-bottom: clamp(32px, 3.333vw, 48px);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap:
+      clamp(40px, calc(7.143vw - 14.857px), 88px)
+      clamp(12px, calc(2.976vw - 10.857px), 32px);
+    align-items: start;
+  }
+
+  .detail {
+    grid-column: 1 / 8;
+    grid-row: 1;
+    margin-top: clamp(32px, calc(9.524vw - 41.143px), 96px);
+  }
+
+  .portrait {
+    grid-column: 9 / 13;
+    grid-row: 1;
+    width: 100%;
+  }
+
+  .editorial {
+    grid-column: 5 / 13;
+    grid-row: 2;
+    margin-top: clamp(16px, calc(2.381vw - 2.286px), 32px);
+  }
+
+  .editorial .imagePanel {
+    aspect-ratio: 5 / 4;
+  }
+
+  .closing {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    width: 100%;
+    align-self: end;
+    margin-bottom: clamp(24px, calc(7.143vw - 30.857px), 72px);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .editorial .imagePanel {
+    aspect-ratio: auto;
+    height: clamp(350px, calc(86.154vw - 532.215px), 708px);
+  }
+
+  /* Keep the face visible when this editorial frame becomes shallower. */
+  .editorial .image {
+    object-position: 50% 20% !important;
+  }
+}

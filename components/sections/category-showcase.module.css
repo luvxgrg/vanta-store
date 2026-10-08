@@ -101,16 +101,16 @@
 
 @media (min-width: 768px) {
   .section {
-    padding: 48px 32px 80px;
+    padding: clamp(48px, 4.444vw, 64px) var(--storefront-gutter) clamp(80px, 7.222vw, 104px);
   }
 
   .heading {
-    margin-bottom: 36px;
+    margin-bottom: clamp(28px, 2.5vw, 36px);
   }
 
   .grid {
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: 32px 24px;
+    gap: clamp(24px, 2.778vw, 40px) clamp(16px, 2.222vw, 32px);
   }
 
   .dominant {
@@ -131,12 +131,18 @@
   }
 }
 
-@media (min-width: 1440px) {
-  .section {
-    padding: 64px 48px 104px;
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .imagePanel {
+    aspect-ratio: auto;
+    height: clamp(180px, calc(54.087vw - 373.846px), 405px);
   }
 
-  .grid {
-    gap: 40px 32px;
+  .dominant .imagePanel {
+    height: auto;
+    min-height: 0;
+  }
+
+  .explore {
+    font-size: 12px;
   }
 }

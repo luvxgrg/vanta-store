@@ -46,3 +46,9 @@ body {
   background: var(--foreground);
   color: var(--background);
 }
+
+@media (min-width: 768px) {
+  :root {
+    --storefront-gutter: clamp(32px, calc(2.381vw + 13.714px), 48px);
+  }
+}
