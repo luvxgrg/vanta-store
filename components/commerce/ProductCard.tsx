@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export default function ProductCard({
   product,
-  href,
+  href = `/products/${product.slug}`,
   imageSizes = "(min-width: 1024px) 25vw, 50vw",
 }: ProductCardProps) {
   const [primaryImage] = product.images;

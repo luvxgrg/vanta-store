@@ -4,9 +4,8 @@ import { notFound } from "next/navigation";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CollectionHeader from "@/components/commerce/CollectionHeader";
 import CollectionProducts from "@/components/commerce/CollectionProducts";
-import CollectionFallback, { ProductGridFallback } from "@/components/commerce/CollectionFallback";
+import CollectionFallback from "@/components/commerce/CollectionFallback";
 import styles from "@/components/commerce/collection.module.css";
 import { collections } from "@/data/collections";
 import { resolveCollection } from "@/lib/resolveCollection";
@@ -33,12 +32,7 @@ async function CollectionContent({ params, searchParams }: CollectionPageProps) 
   if (!resolved) notFound();
 
   return (
-    <>
-      <CollectionHeader collection={resolved.collection} productCount={resolved.products.length} />
-      <Suspense fallback={<ProductGridFallback />}>
-        <CollectionProducts products={resolved.products} searchParams={searchParams} />
-      </Suspense>
-    </>
+    <CollectionProducts collection={resolved.collection} products={resolved.products} searchParams={searchParams} />
   );
 }
 

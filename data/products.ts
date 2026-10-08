@@ -186,5 +186,11 @@ export const products: Product[] = catalogue.map((item, index) => {
     bestseller: false,
     newArrival: true,
     catalogueOrder: index + 1,
+    // Inventory has not been connected for this concept catalogue.
+    availability: "unknown",
+    details: [item.shortDescription, "Part of Drop 001 / Form.", "Unisex concept silhouette."],
+    composition: "Final fibre composition and fabric specifications are not confirmed for this concept piece.",
+    care: ["Care instructions will be confirmed with the final garment label."],
+    sizeGuideId: item.category === "bottoms" ? "bottoms" : "oversized",
   };
 });

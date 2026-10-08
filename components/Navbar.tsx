@@ -2,8 +2,9 @@ import Link from "next/link";
 import { storeConfig } from "@/config/store";
 import { primaryNavigation } from "@/data/navigation";
 import styles from "./storefront.module.css";
+import BagTrigger from "./cart/BagTrigger";
 
-const utilities = ["SEARCH", "WISHLIST", "BAG (0)"];
+const utilities = ["SEARCH", "WISHLIST"];
 
 export default function Navbar() {
   return (
@@ -24,6 +25,7 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
+      <BagTrigger mobile />
       <ul className={styles.utilities}>
         {utilities.map((label) => (
           <li key={label}>
@@ -32,6 +34,7 @@ export default function Navbar() {
             </a>
           </li>
         ))}
+        <li><BagTrigger /></li>
       </ul>
       <button
         type="button"

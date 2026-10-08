@@ -1,0 +1,56 @@
+.main { padding: 24px 20px 80px; }
+.layout { display: grid; gap: 40px; align-items: start; }
+.gallery { display: grid; gap: 12px; min-width: 0; }
+.imagePanel { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--surface); }
+.image { object-fit: cover; object-position: 50% 50%; }
+.study { display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 24px; color: var(--muted); font-size: 11px; text-transform: uppercase; font-family: var(--font-geist-mono), monospace; }
+.information { min-width: 0; }
+.eyebrow { font-family: var(--font-geist-mono), monospace; font-size: 10px; letter-spacing: .06em; }
+.information h1 { margin-top: 20px; font-size: clamp(32px, 3vw, 48px); line-height: 1.05; font-weight: 500; letter-spacing: -.05em; }
+.meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 20px; font-size: 14px; }
+.meta p:first-child { color: var(--muted); }
+.description { margin-top: 24px; max-width: 40ch; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.purchase { margin-top: 32px; }
+.sizes { margin: 0; padding: 0; border: 0; }
+.sizes legend { margin-bottom: 12px; font-size: 11px; letter-spacing: .04em; }
+.sizeRow { display: flex; flex-wrap: wrap; gap: 8px; }
+.sizeOption { position: relative; cursor: pointer; }
+.sizeOption input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.sizeOption span { display: flex; min-width: 44px; min-height: 44px; padding: 8px; justify-content: center; align-items: center; border: 1px solid var(--border); font-size: 12px; }
+.sizeOption input:checked + span { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
+.sizeOption input:focus-visible + span { outline: 2px solid var(--foreground); outline-offset: 3px; }
+.guideTrigger { min-height: 44px; margin-top: 8px; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.addButton { display: block; width: 100%; min-height: 52px; margin-top: 16px; border: 1px solid var(--foreground); border-radius: 0; background: var(--foreground); color: var(--background); font-size: 12px; letter-spacing: .06em; cursor: pointer; }
+.addButton:disabled { opacity: .5; cursor: not-allowed; }
+.message { margin-top: 12px; font-size: 12px; line-height: 1.6; }
+.message:empty { display: none; }
+.accordions { margin-top: 32px; border-top: 1px solid var(--border); }
+.accordions details { border-bottom: 1px solid var(--border); padding-bottom: 0; }
+.accordions details[open] { padding-bottom: 20px; }
+.accordions summary { padding-block: 20px; font-size: 11px; letter-spacing: .03em; cursor: pointer; }
+.accordions p, .accordions ul { margin-top: 12px; font-size: 13px; line-height: 1.7; color: var(--muted); }
+.accordions ul { padding-left: 16px; list-style: disc; }
+.related { margin-top: clamp(64px, 8vw, 120px); border-top: 1px solid var(--border); padding-top: 32px; }
+.related h2 { margin-bottom: 28px; font-size: clamp(22px, 2.5vw, 32px); font-weight: 500; letter-spacing: -.04em; }
+.dialog { width: min(100% - 40px, 560px); max-height: calc(100dvh - 40px); margin: auto; padding: 24px 20px; border: 1px solid var(--border); background: var(--background); color: var(--foreground); overflow-y: auto; overscroll-behavior: contain; }
+.dialog::backdrop { background: rgb(17 17 17 / 30%); }
+.dialogHeader { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.dialogHeader h2 { font-size: 16px; font-weight: 500; }
+.dialogHeader button { min-height: 44px; font-size: 10px; cursor: pointer; }
+.table { width: 100%; margin-top: 24px; border-collapse: collapse; font-size: 11px; text-align: left; }
+.table caption { margin-bottom: 16px; text-align: left; color: var(--muted); }
+.table th, .table td { padding: 12px 6px; border-bottom: 1px solid var(--border); }
+.table th { font-weight: 500; }
+.guideNote { margin-top: 24px; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.main button:focus-visible, .main summary:focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
+.loadingInfo { min-height: 440px; border-top: 1px solid var(--border); }
+@media (min-width: 768px) {
+  .main { padding: 40px var(--storefront-gutter) 100px; }
+  .multiple { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .layout { gap: 48px; }
+}
+@media (min-width: 1024px) {
+  .layout { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px); }
+  .information { position: sticky; top: 32px; }
+  .gallery { gap: 16px; }
+}

@@ -51,6 +51,18 @@ export interface Product {
   // Deterministic catalogue sequence; higher values sort first for Newest.
   // This is an editorial order, not a claimed release date.
   catalogueOrder: number;
+  availability: "in-stock" | "out-of-stock" | "unknown";
+  details: string[];
+  composition: string;
+  care: string[];
+  sizeGuideId: "oversized" | "bottoms";
+}
+
+export interface ProductSelection {
+  productId: string;
+  variantId: string;
+  size: string;
+  quantity: number;
 }
 
 export interface Collection {
